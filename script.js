@@ -1,16 +1,32 @@
 // RE-DO
 
 // Startpage
-function startQuiz() {
+
+// Declare global variables for timer
+var timer = document.getElementById("timer");
+var timeLeft = 60;
+var timerInterval;
+
+
+
+ function startQuiz() {
     // Hide Start Page and show Quiz Page
     document.getElementById("startPage").style.display = "none";
     document.getElementById("quizPage").style.display = "block";
+
+    // Create Timer function
+    timerInterval = setInterval(function startTimer() {
+    timeLeft--;
+    timer.textContent = "Time Left: " +timeLeft;
+
+    if(timeLeft === 0) {
+        clearInterval(timerInterval);
+        showScore();
+    }
+}, 1000);
 }
 
-
 // Quizpage
-
-// Hide startpage and highscores
 
 // Create an object for quiz questions
 
@@ -58,6 +74,13 @@ function checkAnswer() {
     // increase or decrease score
 }
 
+// When quiz is complete show score
+
+function showScore() {
+    // Hide Quiz Page and show Score page
+    document.getElementById("quizPage").style.display = "none";
+    document.getElementById("scorePage").style.display = "block";
+}
 
 
 // View high scores
@@ -69,6 +92,11 @@ function viewHighscores() {
     document.getElementById("startPage").style.display = "none";
     document.getElementById("quizPage").style.display = "none";
     document.getElementById("highScoresPage").style.display = "block";
+}
+
+// When I click clear scores
+function clearScore() {
+    xxx
 }
 
 

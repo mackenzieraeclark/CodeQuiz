@@ -19,7 +19,7 @@
     <header>
         <nav class="navbar sticky-top navbar-light bg-light">
             <button class="navbar-brand" id="viewHighScores" onclick="viewHighscores()">View High Scores</button>
-            <a id="timer"></a>
+            <div id="timer">Time left: 60</div>
         </nav>
     </header>
 
@@ -57,6 +57,20 @@
             </div>
         </div>
 
+        <!-- Final Score -->
+        <div id="scorePage">
+            <div class="card text-center">
+                <div class="card-header">
+                Your Final Score
+                </div>
+                <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <input type="text" size="40px" placeholder="Enter your initials to save your score!" name="userInitials" id="initials"/>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+
         <!-- High Scores -->
         <div id="highScoresPage">
             <div class="card text-center">
@@ -66,7 +80,8 @@
                 <div class="card-body">
                 <h5 class="card-title">Special title treatment</h5>
                 <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <button class="btn btn-primary">Take Quiz Again</button>
+                <button class="btn btn-primary" onclick="clearScore()">Clear Scores</button>
                 </div>
             </div>
         </div>
