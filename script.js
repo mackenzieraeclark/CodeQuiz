@@ -9,6 +9,52 @@
 
 // Hide startpage and highscores
 
+// Create an object for quiz questions
+
+var questions = [
+    {
+        question: "question",
+        a: "a",
+        b: "b",
+        c: "c",
+        answer: "b"
+    },
+    {
+        question: "question",
+        a: "a",
+        b: "b",
+        c: "c",
+        answer: "a"
+    },
+    {
+        question: "question",
+        a: "a",
+        b: "b",
+        c: "c",
+        answer: "b"
+    },
+    {
+        question: "question",
+        a: "a",
+        b: "b",
+        c: "c",
+        answer: "c"
+    },
+    {
+        question: "question",
+        a: "a",
+        b: "b",
+        c: "c",
+        answer: "a"
+    }
+]
+
+// Check Answer Function
+function checkAnswer() {
+    // check if response is correct
+    // increase or decrease score
+}
+
 
 
 // View high scores
