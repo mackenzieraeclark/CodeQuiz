@@ -7,25 +7,22 @@ var timer = document.getElementById("timer");
 var timeLeft = 60;
 var timerInterval;
 
-
-
  function startQuiz() {
     // Hide Start Page and High Score page and show Quiz Page
     document.getElementById("startPage").style.display = "none";
     document.getElementById("highScoresPage").style.display = "none";
     document.getElementById("quizPage").style.display = "block";
-    runQuiz();
 
     // Create Timer function
     timerInterval = setInterval(function startTimer() {
     timeLeft--;
     timer.textContent = "Time Left: " +timeLeft;
-
-    if(timeLeft === 0) {
-        clearInterval(timerInterval);
-        showScore();
-    }
-}, 1000);
+        if(timeLeft === 0) {
+            clearInterval(timerInterval);
+            showScore();
+        }
+    }, 1000);
+    runQuiz();
 }
 
 // Quizpage
@@ -75,21 +72,25 @@ var questions = [
 var buttonA = document.getElementById("A");
 var buttonB = document.getElementById("B");
 var buttonC = document.getElementById("C");
-var quizQuestions = document.getElementById("question");
+var quizQuestions = document.getElementById("questions");
+var displayChoices = document.getElementById("choices");
+var result = document.getElementById("result");
 var fullIndex = questions.length;
 var currentQuestionIndex = 0;
 var currentQuestion = questions[currentQuestionIndex];
+var score = 0;
+var correct;
 
 // Run Quiz
 function runQuiz() {
     quizQuestions.textContent = currentQuestion.question;
-    buttonA.innerHTML = currentQuestion.a;
-    buttonB.innerHTML = currentQuestion.b;
-    buttonC.innerHTML = currentQuestion.c;
+    buttonA.textContent = currentQuestion.a;
+    buttonB.textContent = currentQuestion.b;
+    buttonC.textContent = currentQuestion.c;
     checkAnswer();
 
     for(var i=0; i<fullIndex; i++) {
-        currentQuestionIndex += currentQuestionIndex[i];
+        currentQuestionIndex[i];
     }
 
     // Create if statement for end of questions
@@ -98,25 +99,21 @@ function runQuiz() {
     }
 };
 
-// Declare other global variables
-var score = 0;
-var correct;
-
 // Check Answer Function
-function checkAnswer(answer) {
+function checkAnswer(response) {
     // check if response is correct
     correct = questions[currentQuestion].answer;
     // create if to increase score or decrease time
-    if (answer === correct && currentQuestionIndex !== fullIndex){
+    if (correct === answer && currentQuestionIndex !== fullIndex){
         score++;
         currentQuestionIndex++;
-        $ ("#result").text("Correct!");
-        generateQuizQuestion();
-    }else if (answer !== correct && currentQuestionIndex !== fullIndex){
+        result.text("Correct!");
+        runQuiz();
+    }else if (correct !== answer && currentQuestionIndex !== fullIndex){
         timeLeft - 2;
         currentQuestionIndex++;
-        $ ("#result").text("Incorrect!");
-        generateQuizQuestion();
+        result.text("Incorrect!");
+        runQuiz();
     }else{
         showScore();
     } 
@@ -124,17 +121,28 @@ function checkAnswer(answer) {
 
 // When quiz is complete show score
 
+var finalScore = document.getElementById("score");
+
 function showScore() {
     // Hide Quiz Page and show Score page
     document.getElementById("quizPage").style.display = "none";
     document.getElementById("scorePage").style.display = "block";
 
-    score;
+    finalScore.innerHTML = "You scored " + score + " out of " + questions.length;
+
+
 };
 
 // Submit Score
+function submitResponse() {
+    // Hide Quiz Page and show Score page
+    document.getElementById("quizPage").style.display = "none";
+    document.getElementById("scorePage").style.display = "block";
 
-//Save Score
+    //Save Score
+
+    addInitials();
+}
 
 
 // View high scores

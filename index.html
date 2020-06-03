@@ -48,11 +48,13 @@
                 Code Quiz
                 </div>
                 <div class="card-body">
-                <h5 class="card-title" id="question">Question</h5>
+                <h5 class="card-title" id="questions">Question</h5>
                 <p class="card-text"></p>
-                <button id="A" class="btn btn-primary" onclick="checkAnswer('A')">A</button>
-                <button id="B" class="btn btn-primary" onclick="checkAnswer('B')">B</button>
-                <button id="C" class="btn btn-primary" onclick="checkAnswer('C')">C</button>
+                <div id="choices">
+                    <button id="A" class="btn btn-primary" onclick="checkAnswer('A')">A</button>
+                    <button id="B" class="btn btn-primary" onclick="checkAnswer('B')">B</button>
+                    <button id="C" class="btn btn-primary" onclick="checkAnswer('C')">C</button>
+                </div>
                 <div id="result"></div>
                 </div>
             </div>
@@ -65,9 +67,9 @@
                 Your Final Score
                 </div>
                 <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
+                <h5 class="card-title" id="score"></h5>
                 <input type="text" size="40px" placeholder="Enter your initials to save your score!" name="userInitials" id="initials"/>
-                <button id="responseBtn" onclick="submitResponse()"></button>
+                <button class="btn btn-primary" id="responseBtn" onclick="submitResponse()"></button>
                 </div>
             </div>
         </div>
