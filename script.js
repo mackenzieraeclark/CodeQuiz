@@ -1,6 +1,24 @@
 // RE-DO
 
+// Startpage
 
+// Hide quiz and highscores
+
+
+// Quizpage
+
+// Hide startpage and highscores
+
+
+
+// View high scores
+
+// Hide startpage and quiz
+
+// When I click to see scores
+function viewHighscores() {
+    xxxxx
+}
 
 
 

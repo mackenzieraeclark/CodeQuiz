@@ -18,7 +18,7 @@
     <!-- Header content -->
     <header>
         <nav class="navbar sticky-top navbar-light bg-light">
-            <a class="navbar-brand" id="viewHighScores">View High Scores</a>
+            <button class="navbar-brand" id="viewHighScores" onclick="viewHighscores()">View High Scores</button>
             <a id="timer"></a>
         </nav>
     </header>
@@ -35,16 +35,32 @@
                 <div class="card-body">
                 <h5 class="card-title">Let's review some of the basics...</h5>
                 <p class="card-text">This is a multiple choice test comprised of 5 questions testing your knowledge of javascript principles. You will have <strong>60 seconds</strong> to complete the quiz and will be able to view how much time you have in the top right corner of the screen. For each <strong>incorrect answer</strong>, your alloted time will be decreased by <strong>2 seconds</strong>.</p>
-                <a id="beginBtn" class="btn btn-primary">Begin Quiz</a>
+                <button id="beginBtn" class="btn btn-primary">Begin Quiz</button>
                 </div>
             </div>
         </div>
 
         <!-- Questions -->
-        <!-- <div id="beginQuiz">
+        <div id="quizPage">
             <div class="card text-center">
                 <div class="card-header">
-                Featured
+                Code Quiz
+                </div>
+                <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <button id="beginBtn" class="btn btn-primary">Begin Quiz</button>
+                <button id="beginBtn" class="btn btn-primary">Begin Quiz</button>
+                <button id="beginBtn" class="btn btn-primary">Begin Quiz</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- High Scores -->
+        <div id="highScoresPage">
+            <div class="card text-center">
+                <div class="card-header">
+                High Scores
                 </div>
                 <div class="card-body">
                 <h5 class="card-title">Special title treatment</h5>
@@ -52,13 +68,8 @@
                 <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
-        </div> -->
+        </div>
 
-
-        <!-- Begin the Quiz
-        Questions
-        User Response
-        User Final Score -->
 
     </main>
 
