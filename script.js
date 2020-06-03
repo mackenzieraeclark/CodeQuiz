@@ -23,7 +23,7 @@ var timerInterval;
         }
     }, 1000);
     runQuiz();
-}
+};
 
 // Quizpage
 
@@ -63,7 +63,7 @@ var questions = [
         b: "b",
         c: "c",
         answer: "a"
-    }
+    },
 ];
 
         // We will create this part of the application using indexes
@@ -72,9 +72,11 @@ var questions = [
 var buttonA = document.getElementById("A");
 var buttonB = document.getElementById("B");
 var buttonC = document.getElementById("C");
+
 var quizQuestions = document.getElementById("questions");
 var displayChoices = document.getElementById("choices");
 var result = document.getElementById("result");
+
 var fullIndex = questions.length;
 var currentQuestionIndex = 0;
 var currentQuestion = questions[currentQuestionIndex];
@@ -90,8 +92,8 @@ function runQuiz() {
     checkAnswer();
 
     for(var i=0; i<fullIndex; i++) {
-        currentQuestionIndex[i];
-    }
+        currentQuestionIndex = currentQuestionIndex + 1;
+    };
 
     // Create if statement for end of questions
     if(currentQuestion === fullIndex){
@@ -127,22 +129,39 @@ function showScore() {
     // Hide Quiz Page and show Score page
     document.getElementById("quizPage").style.display = "none";
     document.getElementById("scorePage").style.display = "block";
+    
+    clearInterval(timerInterval);
 
     finalScore.innerHTML = "You scored " + score + " out of " + questions.length;
-
-
 };
 
 // Submit Score
+var highscoreInputName = document.getElementById("initials");
+
 function submitResponse() {
     // Hide Quiz Page and show Score page
     document.getElementById("quizPage").style.display = "none";
     document.getElementById("scorePage").style.display = "block";
 
-    //Save Score
+    highscoreInputName.value = "";
 
-    addInitials();
-}
+    if(highscoreInputName.value == ""){
+        alert("Initials connot be blank");
+        return false;
+    } else {
+        var saveHighScores = JSON.parse(localStorage.getItem("saveHighScores")) || [];
+        var currentUser = highscoreInputName.value.trim();
+        var currentHighSCore = {
+            name: currentUser,
+            score: score
+        };
+
+        saveHighScores.push(currentHighSCore);
+        localStorage.setItem("savedHighScores", JSON.stringify(saveHighScores));
+        generateHighscores();
+    }
+
+};
 
 
 // View high scores
