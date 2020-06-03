@@ -48,11 +48,12 @@
                 Code Quiz
                 </div>
                 <div class="card-body">
-                <h5 class="card-title"></h5>
+                <h5 class="card-title" id="question">Question</h5>
                 <p class="card-text"></p>
                 <button id="A" class="btn btn-primary" onclick="checkAnswer('A')">A</button>
                 <button id="B" class="btn btn-primary" onclick="checkAnswer('B')">B</button>
                 <button id="C" class="btn btn-primary" onclick="checkAnswer('C')">C</button>
+                <div id="result"></div>
                 </div>
             </div>
         </div>
@@ -78,8 +79,10 @@
                 High Scores
                 </div>
                 <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <h5 class="card-title">Let's compare your scores...</h5>
+                <p class="card-text">Your scores will be saved until you clear the scores.</p>
+                    <div id="initials"></div>
+                    <div id="scores"></div>
                 <button class="btn btn-primary" onclick="startQuiz()">Take Quiz Again</button>
                 <button class="btn btn-primary" onclick="clearScore()">Clear Scores</button>
                 </div>

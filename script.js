@@ -14,6 +14,7 @@ var timerInterval;
     document.getElementById("startPage").style.display = "none";
     document.getElementById("highScoresPage").style.display = "none";
     document.getElementById("quizPage").style.display = "block";
+    runQuiz();
 
     // Create Timer function
     timerInterval = setInterval(function startTimer() {
@@ -30,13 +31,12 @@ var timerInterval;
 // Quizpage
 
 // Create an object for quiz questions
-
 var questions = [
     {
-        question: "question",
-        a: "a",
-        b: "b",
-        c: "c",
+        question: "What is",
+        a: "this",
+        b: "that",
+        c: "the other",
         answer: "b"
     },
     {
@@ -67,12 +67,57 @@ var questions = [
         c: "c",
         answer: "a"
     }
-]
+];
+
+        // We will create this part of the application using indexes
+
+// Declare other global variables
+var buttonA = document.getElementById("A");
+var buttonB = document.getElementById("B");
+var buttonC = document.getElementById("C");
+var quizQuestions = document.getElementById("question");
+var fullIndex = questions.length;
+var currentQuestionIndex = 0;
+var currentQuestion = questions[currentQuestionIndex];
+
+// Run Quiz
+function runQuiz() {
+    quizQuestions.innerHTML = currentQuestion.question;
+    buttonA.innerHTML = currentQuestion.a;
+    buttonB.innerHTML = currentQuestion.b;
+    buttonC.innerHTML = currentQuestion.c;
+
+    // Create if statement for end of questions
+    if(currentQuestion === fullIndex){
+        return showScore();
+    }
+};
+
+// Submit Quiz
+// Take initials from input
+
+// Declare other global variables
+var score = 0;
+var correct;
 
 // Check Answer Function
-function checkAnswer() {
+function checkAnswer(answer) {
     // check if response is correct
-    // increase or decrease score
+    correct = questions[currentQuestion].answer;
+    // create if to increase score or decrease time
+    if (answer === correct && currentQuestionIndex !== fullIndex){
+        score++;
+        currentQuestionIndex++;
+        $ ("#result").text("Correct!");
+        generateQuizQuestion();
+    }else if (answer !== correct && currentQuestionIndex !== fullIndex){
+        timeLeft - 2;
+        currentQuestionIndex++;
+        $ ("#result").text("Incorrect!");
+        generateQuizQuestion();
+    }else{
+        showScore();
+    } 
 }
 
 // When quiz is complete show score
@@ -81,6 +126,8 @@ function showScore() {
     // Hide Quiz Page and show Score page
     document.getElementById("quizPage").style.display = "none";
     document.getElementById("scorePage").style.display = "block";
+
+    score;
 }
 
 
