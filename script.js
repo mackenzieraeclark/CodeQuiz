@@ -30,38 +30,38 @@ var timerInterval;
 // Create an object for quiz questions
 var questions = [
     {
-        question: "What is",
-        a: "this",
-        b: "that",
-        c: "the other",
+        question: "Which is the correct Javascript syntax? for a <p> with id'hello'",
+        a: "document.getElementbyName('hello') = 'Hello!' ",
+        b: "document.getElementbyId('hello') = 'Hello!' ",
+        c: "document.getElementbyId('p') = 'Hello!' ",
         answer: "b"
     },
     {
-        question: "question",
-        a: "a",
-        b: "b",
-        c: "c",
-        answer: "a"
-    },
-    {
-        question: "question",
-        a: "a",
-        b: "b",
-        c: "c",
-        answer: "b"
-    },
-    {
-        question: "question",
-        a: "a",
-        b: "b",
-        c: "c",
+        question: "Where is Javascript inserted in the HTML document?",
+        a: "only in the <head> section",
+        b: "only in the <body> section",
+        c: "both the <head> and <body> section",
         answer: "c"
     },
     {
-        question: "question",
-        a: "a",
-        b: "b",
-        c: "c",
+        question: "Where do we put Javascript within HTML?",
+        a: "<js>",
+        b: "<script>",
+        c: "<create-js>",
+        answer: "b"
+    },
+    {
+        question: "How would you alert 'HELLO' in Javascript?",
+        a: "mssg('HELLO')",
+        b: "callOutToUser('HELLO')",
+        c: "alert('HELLO')",
+        answer: "c"
+    },
+    {
+        question: "How do you create a function in Javascript?",
+        a: "function myFunction()",
+        b: "myFunction() function()",
+        c: "function(myFunction)",
         answer: "a"
     },
 ];
@@ -164,6 +164,21 @@ function submitResponse() {
 };
 
 
+function generateHighscores() {
+    highscoreInputName.innerHTML = "";
+    finalScore.innerHTML = "";
+
+    var highScores = JSON.parse(localStorage.getItem("savedHighScores")) || [];
+    for(var i=0; i<highScores.length; i++) {
+        var newInitial = document.createElement("li");
+        var newScore = document.createElement("li");
+        newInitial.textContent = highScores[i].name;
+        newScore.textContent = highScores[i].score;
+        highscoreInputName.appendChild(newInitial);
+        finalScore.appendChild(newScore);
+    }
+};
+
 // View high scores
 
 // Hide startpage and quiz
@@ -173,55 +188,12 @@ function viewHighscores() {
     document.getElementById("startPage").style.display = "none";
     document.getElementById("quizPage").style.display = "none";
     document.getElementById("highScoresPage").style.display = "block";
-}
+    generateHighscores();
+};
 
 // When I click clear scores
 function clearScore() {
-    xxx
-}
-
-
-
-
-
-
-
-// // GIVEN I am taking a code quiz
-//     // Declare initial variables
-//     var submit = document.getElementById("submit");
-//     var score = document.getElementById("score");
-
-// // WHEN I click the start button
-// submit.addEventListener("click", begin);
-
-// function begin() {
-
-// }
-
-// // THEN a timer starts and I am presented with a question
-// var timer = document.getElementById("timer");
-// var secondsLeft = 60;
-// var initialScore = 0;
-
-// timer.textContent = "Time: " + secondsLeft;
-
-// // WHEN I answer a question
-// // THEN I am presented with another question
-
-
-// // WHEN I answer a question incorrectly
-// // THEN time is subtracted from the clock
-
-
-// // WHEN all questions are answered or the timer reaches 0
-
-
-// // THEN the game is over
-
-
-// // WHEN the game is over
-// // THEN I can save my initials and score
-
-
-
-// // id beginQuiz, beginQuestions
+    window.localStorage.clear();
+    highscoreInputName.textContent = "";
+    finalScore.textContent = "";
+};
