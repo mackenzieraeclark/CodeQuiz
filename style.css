@@ -1,13 +1,13 @@
-#score {
-    padding: 20px;
-    position: fixed;
-}
-
-#highscore {
-    padding: 20px;
-    position: fixed;
-}
-
 #startPage {
     padding: 50px;
+}
+
+#quizPage {
+    padding: 50px;
+    display: none;
+}
+
+#highScoresPage {
+    padding: 50px;
+    display: none;
 }

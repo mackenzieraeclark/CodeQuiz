@@ -1,8 +1,11 @@
 // RE-DO
 
 // Startpage
-
-// Hide quiz and highscores
+function startQuiz() {
+    // Hide Start Page and show Quiz Page
+    document.getElementById("startPage").style.display = "none";
+    document.getElementById("quizPage").style.display = "block";
+}
 
 
 // Quizpage
@@ -63,7 +66,9 @@ function checkAnswer() {
 
 // When I click to see scores
 function viewHighscores() {
-    xxxxx
+    document.getElementById("startPage").style.display = "none";
+    document.getElementById("quizPage").style.display = "none";
+    document.getElementById("highScoresPage").style.display = "block";
 }
 
 
