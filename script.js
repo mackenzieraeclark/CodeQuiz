@@ -10,8 +10,9 @@ var timerInterval;
 
 
  function startQuiz() {
-    // Hide Start Page and show Quiz Page
+    // Hide Start Page and High Score page and show Quiz Page
     document.getElementById("startPage").style.display = "none";
+    document.getElementById("highScoresPage").style.display = "none";
     document.getElementById("quizPage").style.display = "block";
 
     // Create Timer function
