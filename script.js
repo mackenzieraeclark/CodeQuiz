@@ -82,19 +82,21 @@ var currentQuestion = questions[currentQuestionIndex];
 
 // Run Quiz
 function runQuiz() {
-    quizQuestions.innerHTML = currentQuestion.question;
+    quizQuestions.textContent = currentQuestion.question;
     buttonA.innerHTML = currentQuestion.a;
     buttonB.innerHTML = currentQuestion.b;
     buttonC.innerHTML = currentQuestion.c;
+    checkAnswer();
+
+    for(var i=0; i<fullIndex; i++) {
+        currentQuestionIndex += currentQuestionIndex[i];
+    }
 
     // Create if statement for end of questions
     if(currentQuestion === fullIndex){
         return showScore();
     }
 };
-
-// Submit Quiz
-// Take initials from input
 
 // Declare other global variables
 var score = 0;
@@ -118,7 +120,7 @@ function checkAnswer(answer) {
     }else{
         showScore();
     } 
-}
+};
 
 // When quiz is complete show score
 
@@ -128,7 +130,11 @@ function showScore() {
     document.getElementById("scorePage").style.display = "block";
 
     score;
-}
+};
+
+// Submit Score
+
+//Save Score
 
 
 // View high scores
